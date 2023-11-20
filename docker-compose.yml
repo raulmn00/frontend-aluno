@@ -1,0 +1,10 @@
+services:
+  frontendaluno:
+    container_name: frontendaluno
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ".:/frontendaluno"
