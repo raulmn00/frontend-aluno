@@ -1,10 +1,15 @@
-import { Routes } from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
+import Home from "./pages/Home.tsx";
 
 function App() {
   return (
     <>
       <div className="App">
-        <Routes></Routes>
+        <Routes>
+            <Route path="/" element={<Home/>}>
+
+            </Route>
+        </Routes>
       </div>
     </>
   );
