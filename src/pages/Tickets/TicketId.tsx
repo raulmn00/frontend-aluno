@@ -1,10 +1,11 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Header from "../../components/Header.tsx";
 import useFetch from "../../hooks/useFetch.ts";
 import format from "date-fns/format";
 import axios from "axios";
 import ApiUrl from "../../constants/apiUrl.ts";
 import { useEffect, useState } from "react";
+
 export default function TicketId() {
   const token = localStorage.getItem("authToken");
   const { ticketId } = useParams();
@@ -19,8 +20,7 @@ export default function TicketId() {
   const { id: userId } = JSON.parse(localStorage.getItem("user"));
   const sendMessage = axios.create({ baseURL: ApiUrl });
   const [updatedTicket, setUpdatedTicket] = useState(ticket);
-
-  console.log({ updatedTicket });
+  const navigate = useNavigate();
 
   useEffect(() => {}, [updatedTicket]);
 
@@ -43,6 +43,7 @@ export default function TicketId() {
         })
         .then((response) => {
           setUpdatedTicket(response.data);
+          navigate(0);
         })
         .catch((error) => {
           console.log(error);

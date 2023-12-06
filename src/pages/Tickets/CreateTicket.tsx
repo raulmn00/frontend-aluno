@@ -4,6 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import ApiUrl from "../../constants/apiUrl.ts";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 export default function CreateTicket() {
   const [subject, setSubject] = useState("");
@@ -12,6 +13,7 @@ export default function CreateTicket() {
   const createTicket = axios.create({ baseURL: ApiUrl });
   const token = localStorage.getItem("authToken");
   const { id: studentId } = JSON.parse(localStorage.getItem("user"));
+  const navigate = useNavigate();
   async function handleSubmit(e) {
     e.preventDefault();
     const payload = { subject, description, studentId, type };
@@ -25,9 +27,7 @@ export default function CreateTicket() {
         })
         .then((response) => {
           toast.success("Ticket created.", { autoClose: 1000 });
-          setTimeout(() => {
-            window.location.href = "/tickets";
-          }, 1000);
+          navigate(0);
         })
         .catch((err) => {
           console.log(err);
