@@ -5,6 +5,7 @@ import Login from "./pages/Login.tsx";
 import CreateAccount from "./pages/CreateAccount.tsx";
 import MyTickets from "./pages/Tickets/MyTickets.tsx";
 import CreateTicket from "./pages/Tickets/CreateTicket.tsx";
+import TicketId from "./pages/Tickets/TicketId.tsx";
 
 function App() {
   return (
@@ -26,6 +27,14 @@ function App() {
             element={
               <RequireAuth>
                 <MyTickets />
+              </RequireAuth>
+            }
+          ></Route>
+          <Route
+            path="tickets/:ticketId"
+            element={
+              <RequireAuth>
+                <TicketId />
               </RequireAuth>
             }
           ></Route>
