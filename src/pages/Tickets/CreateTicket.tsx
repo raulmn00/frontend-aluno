@@ -11,10 +11,10 @@ export default function CreateTicket() {
   const [type, setType] = useState("");
   const createTicket = axios.create({ baseURL: ApiUrl });
   const token = localStorage.getItem("authToken");
-    const { id: studentId } = JSON.parse(localStorage.getItem("user"));
+  const { id: studentId } = JSON.parse(localStorage.getItem("user"));
   async function handleSubmit(e) {
     e.preventDefault();
-    const payload = { subject, description, studentId ,type };
+    const payload = { subject, description, studentId, type };
 
     try {
       createTicket
