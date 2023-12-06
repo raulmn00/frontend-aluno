@@ -19,24 +19,24 @@ function App() {
               </RequireAuth>
             }
           ></Route>
-            <Route path="/login" element={<Login />} />
-            <Route path="/create" element={<CreateAccount />} />
-            <Route
-                path="/tickets"
-                element={
-                    <RequireAuth>
-                        <MyTickets />
-                    </RequireAuth>
-                }
-            ></Route>
-            <Route
-                path="/create-ticket"
-                element={
-                    <RequireAuth>
-                        <CreateTicket />
-                    </RequireAuth>
-                }
-            ></Route>
+          <Route path="/login" element={<Login />} />
+          <Route path="/create" element={<CreateAccount />} />
+          <Route
+            path="/tickets"
+            element={
+              <RequireAuth>
+                <MyTickets />
+              </RequireAuth>
+            }
+          ></Route>
+          <Route
+            path="/create-ticket"
+            element={
+              <RequireAuth>
+                <CreateTicket />
+              </RequireAuth>
+            }
+          ></Route>
         </Routes>
       </div>
     </>

@@ -4,234 +4,276 @@
 
 /*Tabela dos tickets geral*/
 table {
-    border-collapse: collapse;
-    width: 90%;
-    margin: 0 auto;
+  border-collapse: collapse;
+  width: 90%;
+  margin: 0 auto;
 }
 
 thead th {
-    background-color: #eee;
-    text-align: left;
+  background-color: #eee;
+  text-align: left;
 }
 
 tbody td {
-    padding: 0.5rem;
-    margin: 0 0.5rem;
-    border-bottom: 1px solid #ddd;
+  padding: 0.5rem;
+  margin: 0 0.5rem;
+  border-bottom: 1px solid #ddd;
 }
 
 .tickets-title {
-    text-align: center;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 1.5rem;
-    padding-bottom: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .view-ticket {
-    background-color: #007bff;
-    border-radius: 0.5rem;
-    padding: 0.5rem 1rem;
-    color: white;
-    cursor: pointer;
-    text-decoration: none;
+  background-color: #007bff;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .view-ticket:hover {
-    background-color: #0069d6;
+  background-color: #0069d6;
 }
 
 /*Mensagem dos tickets*/
 .message-container {
-    /*border: 1px solid #ddd;*/
-    padding: 1rem;
-    margin-bottom: 1rem;
+  /*border: 1px solid #ddd;*/
+  padding: 1rem;
+  margin-bottom: 1rem;
 }
 
 .message {
-    display: flex;
-    flex-direction: column;
-    background-color: #eee;
-    border-radius: 0.5rem;
-    padding: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: #eee;
+  border-radius: 0.5rem;
+  padding: 10px;
 }
 
 .message-header {
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 0.5rem;
-    text-align: right;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.5rem;
+  text-align: right;
 }
 
 .message-created-at {
-    font-size: 0.8rem;
-    color: black;
+  font-size: 0.8rem;
+  color: black;
 }
 
 .message-body {
-    font-size: 0.9rem;
-    padding: 10px;
+  font-size: 0.9rem;
+  padding: 10px;
 }
 
 .message-meta {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
 }
 
 .message-author,
 .message-email {
-    margin-bottom: 0.25rem;
+  margin-bottom: 0.25rem;
 }
 
 .message-email {
-    font-size: 0.8rem;
-    color: black;
+  font-size: 0.8rem;
+  color: black;
 }
 .message-title {
-    font-weight: bold;
-    justify-content: center;
-    text-align: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
+  font-weight: bold;
+  justify-content: center;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 /*Botao alterar status do ticket*/
 .status-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
-    width: 100%;
-    margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  width: 100%;
+  margin-top: 3rem;
 }
 
 .status-select {
-    width: 50%;
-    border: 1px solid #000;
-    border-radius: 0.5rem;
+  width: 50%;
+  border: 1px solid #000;
+  border-radius: 0.5rem;
 }
 
 .status-button {
-    background-color: #000;
-    color: #fff;
-    padding: 0.8rem;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    margin-left: 0.8rem;
+  background-color: #000;
+  color: #fff;
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin-left: 0.8rem;
 }
 
 /*Students*/
 
 .students-title {
-    text-align: center;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 1.5rem;
-    padding-bottom: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .students-tickets-table {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 .students-tickets-title {
-    margin-top: 1rem;
-    text-align: center;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 1.5rem;
-    padding-bottom: 1.5rem;
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .edit-student-button {
-    background-color: #007bff;
-    border-radius: 0.5rem;
-    padding: 0.5rem 1rem;
-    color: white;
-    cursor: pointer;
-    text-decoration: none;
-    float: right;
+  background-color: #007bff;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  float: right;
 }
 
 .view-ticket:hover {
-    background-color: midnightblue;
+  background-color: midnightblue;
 }
 
 form {
-    width: 90%;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .form-group {
-    margin-bottom: 15px;
-    width: 90%;
+  margin-bottom: 15px;
+  width: 90%;
 }
 
 label {
-    font-size: 16px;
-    font-weight: bold;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 input[type="text"],
-input[type="email"] {
-    width: 100%;
-    padding: 10px;
-    border-radius: 3px;
-    border: 1px solid #ccc;
-    outline: none;
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  outline: none;
 }
 
 button[type="submit"] {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .create-account-form {
-    width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
+  width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
 }
 
 .create-account-form label {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .create-account-form input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
 }
 
 .create-account-form button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 }
 
 .button {
-    width: 100px;
-    height: 40px;
-    background-color: #000;
-    color: #fff;
-    border-radius: 4px;
-    cursor: pointer;
+  width: 100px;
+  height: 40px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.form-control:focus {
+  border-color: #333;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+select {
+  width: 100%;
+  height: 35px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #0062cc;
 }
