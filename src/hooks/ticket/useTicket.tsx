@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ApiUrl from "../../constants/apiUrl.ts";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const useTicket = () => {
   const getTickets = (studentId: string | undefined) => {
@@ -38,6 +39,7 @@ const useTicket = () => {
           setData(response.data);
         })
         .catch((err) => {
+          toast.error("Não foi possível encontrar o seu ticket.");
           console.log("useTicket -> getTicket", err);
         });
     }, [ticketId]);

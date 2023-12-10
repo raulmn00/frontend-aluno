@@ -17,13 +17,15 @@ table {
 
 thead th {
   background-color: #eee;
-  text-align: left;
+  text-align: center;
 }
 
 tbody td {
   padding: 0.5rem;
   margin: 0 0.5rem;
   border-bottom: 1px solid #ddd;
+  border-left: solid 1px #ddd;
+  border-right: solid 1px #ddd;
 }
 
 .tickets-title {

@@ -1,12 +1,12 @@
 import { useNavigate, useParams } from "react-router-dom";
 import Header from "../../components/Header.tsx";
-import useFetch from "../../hooks/useFetch.ts";
 import format from "date-fns/format";
 import axios from "axios";
 import ApiUrl from "../../constants/apiUrl.ts";
 import { useEffect, useState } from "react";
 import useTicket from "../../hooks/ticket/useTicket.tsx";
 import { toast } from "react-toastify";
+import { Message } from "../../types/models/models.ts";
 
 export default function TicketId() {
   const token = localStorage.getItem("authToken");
@@ -90,8 +90,8 @@ export default function TicketId() {
           </tr>
         </tbody>
       </table>
-      <h3 className="message-title">Messages History</h3>
-      {oneTicketMessages?.map((singleMessage, index) => (
+      <h3 className="message-title">Histórico de Mensagens</h3>
+      {oneTicketMessages.map((singleMessage: Message, index) => (
         <div
           className="message-container"
           key={`${singleMessage?.id} - ${index}`}
@@ -105,7 +105,7 @@ export default function TicketId() {
               <p className="message-created-at">
                 Criado em:{" "}
                 {format(
-                  new Date(singleMessage?.createdAt),
+                  new Date(singleMessage.createdAt),
                   "dd/MM/yyyy - hh:mm",
                 )}
               </p>
@@ -132,7 +132,7 @@ export default function TicketId() {
       {Boolean(ticket?.status !== "closed") && (
         <form onSubmit={handleSendingMessage}>
           <div className="tickets-title">
-            <p>Send Message:</p>
+            <p>Enviar mensagem:</p>
           </div>
           <div className="form-group">
             <label htmlFor="content">Conteúdo: </label>

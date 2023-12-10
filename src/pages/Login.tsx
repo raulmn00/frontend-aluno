@@ -13,7 +13,7 @@ export default function Login() {
     if (email && password) {
       const isLogged = await auth.signin(email, password);
       if (isLogged) {
-        window.location.href = "/";
+        window.location.href = "/tickets";
       }
     }
   }

@@ -14,6 +14,14 @@ export default function CreateTicket() {
   const token = localStorage.getItem("authToken");
   const { id: studentId } = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
+  const growers = document.querySelectorAll(".grow-wrap");
+
+  growers?.forEach((grower) => {
+    const textarea = grower.querySelector("textarea");
+    textarea?.addEventListener("input", () => {
+      grower.dataset.replicatedValue = textarea.value;
+    });
+  });
   async function handleSubmit(e) {
     e.preventDefault();
     const payload = { subject, description, studentId, type };
@@ -26,11 +34,13 @@ export default function CreateTicket() {
           },
         })
         .then((response) => {
-          toast.success("Ticket created.", { autoClose: 1000 });
-          navigate(0);
+          toast.success("Ticket criado com sucesso.", { autoClose: 1000 });
+          setInterval(() => navigate("/tickets"), 1000);
+          console.log(response);
         })
-        .catch((err) => {
-          console.log(err);
+        .catch((error) => {
+          error.response.data.message.map((m) => toast.error(m));
+          console.log(error);
         });
     } catch (err) {}
   }
@@ -41,7 +51,7 @@ export default function CreateTicket() {
       )}
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="subject">Subject</label>
+          <label htmlFor="subject">Assunto*</label>
           <input
             id="subject"
             type="text"
@@ -52,25 +62,30 @@ export default function CreateTicket() {
             onChange={(event) => setSubject(event.target.value)}
           />
         </div>
-        <div className="form-group">
-          <label htmlFor="description">Description</label>
+        <label htmlFor="description">Descrição* </label>
+        <div className="form-group grow-wrap">
           <textarea
             className="form-control"
             id="description"
             name="description"
-            placeholder="Description"
+            placeholder="Descrição do ticket..."
             value={description}
             onChange={(event) => setDescription(event.target.value)}
+            onInput={() =>
+              "this.parentNode.dataset.replicatedValue = this.value"
+            }
           />
         </div>
         <div className="form-group">
-          <label htmlFor="type">Type</label>
+          <label htmlFor="type">Tipo*</label>
           <select
             className="form-control"
             name="type"
             id="type"
+            defaultValue=""
             onChange={(event) => setType(event.target.value)}
           >
+            <option value=""></option>
             <option value="termination">Termination</option>
             <option value="questions">Questions</option>
             <option value="platform-problems">Platform Problems</option>
