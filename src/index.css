@@ -277,3 +277,18 @@ select {
 .btn-primary:hover {
   background-color: #0062cc;
 }
+.message-admin {
+  display: flex;
+  flex-direction: column;
+  background-color: #ff003882;
+  border-radius: 0.5rem;
+  padding: 10px;
+}
+
+.message-student {
+  display: flex;
+  flex-direction: column;
+  background-color: #87cefa;
+  border-radius: 0.5rem;
+  padding: 10px;
+}

@@ -1,11 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../contexts/auth/AuthContext.tsx";
-import { toast } from "react-toastify";
 
 export default function Login() {
-  const navigate = useNavigate();
-
   const auth = useContext(AuthContext);
 
   async function handleSubmitAdmin(e) {
@@ -31,7 +28,7 @@ export default function Login() {
             alt="Your Company"
           />
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-            Sign in to your account
+            Entre em sua conta
           </h2>
         </div>
 
@@ -42,7 +39,7 @@ export default function Login() {
                 htmlFor="email"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
-                Email address
+                Email
               </label>
               <div className="mt-2">
                 <input
@@ -62,7 +59,7 @@ export default function Login() {
                   htmlFor="password"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
-                  Password
+                  Senha
                 </label>
               </div>
               <div className="mt-2">
@@ -82,18 +79,18 @@ export default function Login() {
                 type="submit"
                 className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                Sign in
+                Entrar
               </button>
             </div>
           </form>
         </div>
         <div className="mt-2 text-center">
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-            Don't have a account?
+            Não tem uma conta?
           </h2>
           <button>
             <a href="/create" className="view-ticket mt-5">
-              Create here!
+              Crie aqui!
             </a>
           </button>
         </div>

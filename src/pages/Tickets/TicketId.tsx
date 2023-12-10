@@ -5,18 +5,14 @@ import format from "date-fns/format";
 import axios from "axios";
 import ApiUrl from "../../constants/apiUrl.ts";
 import { useEffect, useState } from "react";
+import useTicket from "../../hooks/ticket/useTicket.tsx";
 
 export default function TicketId() {
   const token = localStorage.getItem("authToken");
   const { ticketId } = useParams();
-  const ticket = useFetch(`/ticket/${ticketId}`, token);
-  const oneTicketMessages = useFetch(
-    `/message/ticketMessages/${ticketId}`,
-    token,
-  );
-
-  const admins = useFetch("/admin", token);
-
+  const { getTicket, getTicketMessages } = useTicket();
+  const ticket = getTicket(ticketId);
+  const oneTicketMessages = getTicketMessages(ticketId);
   const { id: userId } = JSON.parse(localStorage.getItem("user"));
   const sendMessage = axios.create({ baseURL: ApiUrl });
   const [updatedTicket, setUpdatedTicket] = useState(ticket);
@@ -32,7 +28,7 @@ export default function TicketId() {
       studentId: ticket?.studentId,
       ticketId: ticket?.id,
       createdBy: userId,
-      adminId: admins[0].id,
+      adminId: ticket.adminId,
     };
     try {
       sendMessage
@@ -54,17 +50,18 @@ export default function TicketId() {
     <>
       <Header />
       <div className="tickets-title">
-        <p>Ticket Infos</p>
+        <p>Informações do Ticket</p>
       </div>
       <table>
         <thead>
           <tr>
             <th>Id</th>
-            <th>Created At</th>
-            <th>Subject</th>
-            <th>Description</th>
+            <th>Criação</th>
+            <th>Assunto</th>
+            <th>Descrição</th>
             <th>Status</th>
-            <th>Type</th>
+            <th>Tipo</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -75,6 +72,11 @@ export default function TicketId() {
             <td>{ticket?.description}</td>
             <td>{ticket?.status}</td>
             <td>{ticket?.type}</td>
+            <td className="text-center">
+              <a className="view-ticket" href={`/tickets/edit/${ticket?.id}`}>
+                Editar
+              </a>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -84,7 +86,11 @@ export default function TicketId() {
           className="message-container"
           key={`${singleMessage?.id} - ${index}`}
         >
-          <div className="message">
+          <div
+            className={`message-${
+              singleMessage.createdByAdmin ? "admin" : "student"
+            }`}
+          >
             <div className="message-header">
               <p className="message-created-at">
                 Criado em:{" "}

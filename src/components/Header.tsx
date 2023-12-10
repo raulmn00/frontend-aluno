@@ -34,13 +34,13 @@ export default function Header() {
               href="/tickets"
               className="text-sm font-semibold leading-6 text-gray-900"
             >
-              My Tickets
+              Meus Tickets
             </a>
             <a
               href="/create-ticket"
               className="text-sm font-semibold leading-6 text-gray-900"
             >
-              Create Ticket
+              Criar Ticket
             </a>
           </Popover.Group>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -48,7 +48,7 @@ export default function Header() {
               onClick={handleLogout}
               className="text-sm font-semibold leading-6 text-gray-900"
             >
-              Log out <span aria-hidden="true">&rarr;</span>
+              Sair <span aria-hidden="true">&rarr;</span>
             </a>
           </div>
         </nav>
