@@ -9,8 +9,8 @@ export const AuthProvider = ({ children }) => {
 
   const signin = async (email: string, password: string) => {
     const data = await api.signin(email, password);
-    if (data?.user && data?.access_token) {
-      localStorage.setItem("user", JSON.stringify(data.user));
+    if (data?.student && data?.access_token) {
+      localStorage.setItem("user", JSON.stringify(data.student));
       localStorage.setItem("authToken", data.access_token);
       return true;
     }

@@ -17,15 +17,6 @@ export default function Login() {
       const isLogged = await auth.signin(email, password);
       if (isLogged) {
         window.location.href = "/";
-      } else {
-        toast.error("Password or email are incorrect. Please try again!", {
-          position: "bottom-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          progress: undefined,
-          theme: "dark",
-        });
       }
     }
   }

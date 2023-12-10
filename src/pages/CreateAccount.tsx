@@ -10,7 +10,7 @@ export default function CreateAccount() {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
 
-  const createAdminRequest = axios.create({ baseURL: ApiUrl });
+  const createStudentRequest = axios.create({ baseURL: ApiUrl });
   const token = localStorage.getItem("authToken");
 
   const navigate = useNavigate();
@@ -19,29 +19,22 @@ export default function CreateAccount() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Valida os dados do formulário
-    if (!name || !email || !password) {
-      toast.error(
-        "Some fields are empty. Please fill all fields and try create again.",
-      );
-      return;
-    }
-
     const payload = { name, email, phone, password };
 
-    createAdminRequest
-      .post("/admin", payload, {
+    createStudentRequest
+      .post("/student", payload, {
         headers: {
           Authorization: "Bearer " + token,
         },
       })
       .then((response) => {
         console.log(response.data);
-        toast.success("User created.");
-        navigate(0);
+        toast.success("Estudante criado com sucesso!", { autoClose: 1000 });
+        setInterval(() => navigate({ pathname: "/login" }), 1500);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        error.response.data.message.map((m) => toast.error(m));
+        console.log(error);
       });
   };
   return (
@@ -54,12 +47,12 @@ export default function CreateAccount() {
             alt="Your Company"
           />
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-            Create your account
+            Crie sua conta
           </h2>
         </div>
         <form onSubmit={handleSubmit} className="create-account-form">
           <div>
-            <label htmlFor="name">Name</label>
+            <label htmlFor="name">Nome</label>
             <input
               type="text"
               id="name"
@@ -77,7 +70,7 @@ export default function CreateAccount() {
             />
           </div>
           <div>
-            <label htmlFor="phone">Phone</label>
+            <label htmlFor="phone">Telefone</label>
             <input
               type="text"
               id="phone"
@@ -86,7 +79,7 @@ export default function CreateAccount() {
             />
           </div>
           <div>
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">Senha</label>
             <input
               type="password"
               id="password"
@@ -98,11 +91,11 @@ export default function CreateAccount() {
         </form>
         <div className="mt-2 text-center">
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-            Already have a account?
+            Já tem uma conta?
           </h2>
           <button>
             <a href="/login" className="view-ticket">
-              Login here!
+              Entre aqui!
             </a>
           </button>
         </div>
