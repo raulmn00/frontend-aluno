@@ -2,6 +2,12 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+
 /*Tabela dos tickets geral*/
 table {
   border-collapse: collapse;
@@ -31,7 +37,7 @@ tbody td {
 .view-ticket {
   background-color: #007bff;
   border-radius: 0.5rem;
-  padding: 0.5rem 1rem;
+  padding: 10px 20px;
   color: white;
   cursor: pointer;
   text-decoration: none;
@@ -243,7 +249,7 @@ button[type="submit"] {
 
 .form-control {
   width: 100%;
-  padding: 10px;
+  padding: 5px;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -270,7 +276,7 @@ select {
   color: #fff;
   border-color: #007bff;
   border-radius: 4px;
-  padding: 10px;
+  padding: 10px 20px;
   cursor: pointer;
 }
 
@@ -357,4 +363,72 @@ p.search-title {
   text-align: center;
   font-weight: bold;
   font-size: 24px;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(154, 62, 62, 0.8);
+}
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+.modal-backdrop.show {
+  opacity: var(--bs-backdrop-opacity);
+}
+.modal {
+  --bs-modal-zindex: 1055;
+  --bs-modal-width: 500px;
+  --bs-modal-padding: 1rem;
+  --bs-modal-margin: 0.5rem;
+  --bs-modal-color: ;
+  --bs-modal-bg: var(--bs-body-bg);
+  --bs-modal-border-color: var(--bs-border-color-translucent);
+  --bs-modal-border-width: var(--bs-border-width);
+  --bs-modal-border-radius: var(--bs-border-radius-lg);
+  --bs-modal-box-shadow: var(--bs-box-shadow-sm);
+  --bs-modal-inner-border-radius: calc(
+    var(--bs-border-radius-lg) - (var(--bs-border-width))
+  );
+  --bs-modal-header-padding-x: 1rem;
+  --bs-modal-header-padding-y: 1rem;
+  --bs-modal-header-padding: 1rem 1rem;
+  --bs-modal-header-border-color: var(--bs-border-color);
+  --bs-modal-header-border-width: var(--bs-border-width);
+  --bs-modal-title-line-height: 1.5;
+  --bs-modal-footer-gap: 0.5rem;
+  --bs-modal-footer-bg: ;
+  --bs-modal-footer-border-color: var(--bs-border-color);
+  --bs-modal-footer-border-width: var(--bs-border-width);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--bs-modal-zindex);
+  display: none;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  outline: 0;
+}
+button.delete-button {
+  background: red;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+button.delete-button:hover {
+  background-color: #8b0000ff;
 }

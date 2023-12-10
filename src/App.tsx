@@ -7,6 +7,7 @@ import MyTickets from "./pages/Tickets/MyTickets.tsx";
 import CreateTicket from "./pages/Tickets/CreateTicket.tsx";
 import TicketId from "./pages/Tickets/TicketId.tsx";
 import UpdateTicket from "./pages/Tickets/UpdateTicket.tsx";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
