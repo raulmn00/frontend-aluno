@@ -6,6 +6,7 @@ import axios from "axios";
 import ApiUrl from "../../constants/apiUrl.ts";
 import { useEffect, useState } from "react";
 import useTicket from "../../hooks/ticket/useTicket.tsx";
+import { toast } from "react-toastify";
 
 export default function TicketId() {
   const token = localStorage.getItem("authToken");
@@ -16,7 +17,17 @@ export default function TicketId() {
   const { id: userId } = JSON.parse(localStorage.getItem("user"));
   const sendMessage = axios.create({ baseURL: ApiUrl });
   const [updatedTicket, setUpdatedTicket] = useState(ticket);
+
   const navigate = useNavigate();
+
+  const growers = document.querySelectorAll(".grow-wrap");
+
+  growers?.forEach((grower) => {
+    const textarea = grower.querySelector("textarea");
+    textarea?.addEventListener("input", () => {
+      grower.dataset.replicatedValue = textarea.value;
+    });
+  });
 
   useEffect(() => {}, [updatedTicket]);
 
@@ -30,21 +41,20 @@ export default function TicketId() {
       createdBy: userId,
       adminId: ticket.adminId,
     };
-    try {
-      sendMessage
-        .post(`/message`, bodyMessage, {
-          headers: {
-            Authorization: "Bearer " + token,
-          },
-        })
-        .then((response) => {
-          setUpdatedTicket(response.data);
-          navigate(0);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    } catch (e) {}
+    sendMessage
+      .post(`/message`, bodyMessage, {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      })
+      .then((response) => {
+        setUpdatedTicket(response.data);
+        toast.success("Mensagem enviada com sucesso.", { autoClose: 1000 });
+        setInterval(() => navigate(0), 1000);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
   return (
     <>
@@ -101,6 +111,10 @@ export default function TicketId() {
               </p>
             </div>
             <div className="message-meta">
+              <p>
+                Mensagem do{" "}
+                {singleMessage?.createdByAdmin ? "Administrador" : "Estudante"}
+              </p>
               <p className="message-author">
                 Autor: {singleMessage?.createdBy?.name}
               </p>
@@ -122,12 +136,15 @@ export default function TicketId() {
           </div>
           <div className="form-group">
             <label htmlFor="content">Conteúdo: </label>
-            <input
-              type="text"
-              className="form-control"
-              id="content"
-              name="content"
-            />
+            <div className="grow-wrap">
+              <textarea
+                name="content"
+                id="content"
+                onInput={() =>
+                  "this.parentNode.dataset.replicatedValue = this.value"
+                }
+              ></textarea>
+            </div>
           </div>
           <button type="submit" className="btn btn-primary">
             Salvar
