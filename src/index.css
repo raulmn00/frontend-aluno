@@ -434,3 +434,7 @@ button.delete-button {
 button.delete-button:hover {
   background-color: #8b0000ff;
 }
+
+.logout {
+  cursor: pointer;
+}

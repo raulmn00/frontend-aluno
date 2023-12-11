@@ -17,6 +17,14 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/create" element={<CreateAccount />} />
           <Route
+            path="/"
+            element={
+              <RequireAuth>
+                <Home />
+              </RequireAuth>
+            }
+          ></Route>
+          <Route
             path="/tickets"
             element={
               <RequireAuth>

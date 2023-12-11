@@ -37,7 +37,7 @@ export default function Header() {
               Criar Ticket
             </a>
           </Popover.Group>
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end logout">
             <a
               onClick={handleLogout}
               className="text-sm font-semibold leading-6 text-gray-900"
